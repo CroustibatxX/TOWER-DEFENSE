@@ -111,12 +111,16 @@ class Mechant:
                 
                 if len(canvas.find_withtag("monstre1"))>0:
                         if self.vie_monstre<=0:
+                                if liste_ennemi.remove(self.monstre) is not None:
+                                        liste_ennemi.remove(self.monstre) 
                                 canvas.delete(self.monstre)
                                 canvas.delete(self.barre_vie)
-                                        
+                                
+                                             
 
                         if self.case_x < spriteX_max:
                                 if niveau.liste[self.case_y][self.case_x+1] == 'a':           
+                                        liste_ennemi.remove(self.monstre)
                                         canvas.delete(self.monstre)
                                         canvas.delete(self.barre_vie)
 
@@ -172,7 +176,7 @@ class Mechant:
                 if liste_ennemi[0]==self.monstre:
                         print(self.vie_monstre)
                         self.vie_monstre-=1
-                        
+                        print(liste_ennemi)
 
 
         def detection(self):
@@ -391,7 +395,7 @@ def vague():
                 
         if a==Nb_ennemi and len(canvas.find_withtag("monstre1"))==0:
                 a=0
-                liste.ennemi=[]
+                liste_ennemi=[]
                 
         
                 
