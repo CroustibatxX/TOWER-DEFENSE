@@ -443,7 +443,7 @@ def b_lancer():
 
 
 def vague():
-        global boucle1,Nb_ennemi,Vague,liste_ennemi,win,compt_vague
+        global boucle1,Nb_ennemi,Vague,liste_ennemi,compt_vague
         if menu_check==False:
                 if scenario==1:
                         if boucle1<Nb_ennemi:
@@ -456,7 +456,6 @@ def vague():
                         if boucle1==Nb_ennemi and len(canvas.find_withtag("monstre1"))==0:
                                 liste_ennemi=[]
                                 Vague=False
-                                win+=1
                                 compt_vague+=1
                                 compteur_vague.configure(text="Vagues:"+str(compt_vague)+"/10")
                                 start()
@@ -468,7 +467,7 @@ def vague():
 
 def test_win():
         if menu_check==False:
-                if win==10:
+                if compt_vague==10:
                         gagner()
         canvas.after(10,test_win)
 
@@ -542,7 +541,7 @@ def gagner():
 
 def menu():
         
-        global menu_check,liste_tour,boucle1,scenario,argent,Vague,Nb_ennemi,liste_ennemi,argent,vie_joueur,win,compt_vague
+        global menu_check,liste_tour,boucle1,scenario,argent,Vague,Nb_ennemi,liste_ennemi,argent,vie_joueur,compt_vague
         menu_check=True
         
         #Initialisation des varibales 
@@ -555,7 +554,6 @@ def menu():
         Nb_ennemi=3
         argent=200
         vie_joueur=5
-        win=0
         compt_vague=0
         
 
@@ -648,7 +646,7 @@ liste_ennemi=[]
 liste_tour=[]
 argent=200
 vie_joueur=5
-win=0
+
 compt_vague=0
 
 
